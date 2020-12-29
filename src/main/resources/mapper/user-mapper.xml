@@ -5,11 +5,11 @@
 <mapper namespace="com.myweb.community.dao.UserMapper">
 
     <sql id="insertFields">
-        username, password, salt, email, type, status, activation_code, header_url, create_time
+        username, password, salt, email, type, status, activation_code, header_url, create_time,number
     </sql>
 
     <sql id="selectFields">
-        id, username, password, salt, email, type, status, activation_code, header_url, create_time
+        id, username, password, salt, email, type, status, activation_code, header_url, create_time,number
     </sql>
 
     <select id="selectById" resultType="User">
@@ -32,7 +32,7 @@
 
     <insert id="insertUser" parameterType="User" keyProperty="id">
         insert into user (<include refid="insertFields"></include>)
-        values(#{username}, #{password}, #{salt}, #{email}, #{type}, #{status}, #{activationCode}, #{headerUrl}, #{createTime})
+        values(#{username}, #{password}, #{salt}, #{email}, #{type}, #{status}, #{activationCode}, #{headerUrl}, #{createTime},#{number})
     </insert>
 
     <update id="updateStatus">

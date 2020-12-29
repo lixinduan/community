@@ -8,14 +8,24 @@ public class User {
     private String password;
     private String salt;
     private String email;
+    private String number;
     private int type;
     private int status;
     private String activationCode;
     private String headerUrl;
+
     private Date createTime;
 
     public int getId() {
         return id;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public void setId(int id) {
@@ -94,6 +104,7 @@ public class User {
         this.createTime = createTime;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
@@ -102,6 +113,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", email='" + email + '\'' +
+                ", number='" + number + '\'' +
                 ", type=" + type +
                 ", status=" + status +
                 ", activationCode='" + activationCode + '\'' +
