@@ -24,7 +24,6 @@ import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.http.HttpResponse;
 import java.util.Map;
 
 @Controller
@@ -117,7 +116,6 @@ public class LoginController implements CommunityConstant{
         //将验证码存在session
         session.setAttribute("kaptche",kaptche);
         //图片输出到浏览器
-
         response.setContentType("image/png");
 
         try {
@@ -153,6 +151,7 @@ public class LoginController implements CommunityConstant{
         // 检查账号,密码
         int expiredSeconds = rememberme ? REMEMBER_EXPIRED_SECONDS : DEFAULT_EXPIRED_SECONDS;
         Map<String, Object> map = userService.login(username, password, expiredSeconds);
+        //包含ticket表示成功
         if (map.containsKey("ticket")) {
             Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
             cookie.setPath(contextPath);

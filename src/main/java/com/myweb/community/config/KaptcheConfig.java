@@ -10,6 +10,7 @@ import java.util.Properties;
 
 @Configuration
 public class KaptcheConfig {
+
     @Bean
     public Producer kaptcheProducer(){
         Properties properties = new Properties();
